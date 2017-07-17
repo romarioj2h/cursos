@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Curso extends Model
 {
+    use Searchable;
+
     const TAMANHO_RESUMO = 200;
     const ITEMS_POR_PAGINA = 10;
     const UPDATED_AT = 'atualizadoEm';
