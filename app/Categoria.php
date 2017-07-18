@@ -13,7 +13,7 @@ class Categoria extends Model
 
     public function cursos()
     {
-        return $this->hasMany('App\Curso', 'categoriaId');
+        return $this->hasMany('App\Curso', 'categoriaId')->where('estado', Curso::ESTADO_APROVADO);
     }
 
     public function buscarCursosPopulares()

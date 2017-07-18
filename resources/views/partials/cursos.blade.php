@@ -11,7 +11,12 @@
                     <a href="{{ route('curso.get', ['id' => $curso->id]) }}">
                         {{ $curso->nome }} - {{ $curso->criador->nome }}
                     </a>
-                    <small>{{ $curso->anoPublicacao() }} - {{ $curso->custo() }}</small>
+                    <small>
+                        {{ $curso->anoPublicacao() }} - {{ $curso->custo() }} -
+                    </small>
+                    <a target="_blank" href="{{ $curso->link }}">
+                        <span class="glyphicon glyphicon-new-window"></span>
+                    </a>
                 </h4>
                 {{ $curso->resumo() }}
             </div>

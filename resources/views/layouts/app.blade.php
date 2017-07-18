@@ -63,7 +63,7 @@
                 </ul>
                 <form action="{{ route('busca.get') }}" method="get" class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input name="q" type="text" class="form-control" placeholder="Search">
+                        <input value="{{ $termoDeBusca ?? '' }}" name="q" type="text" class="form-control" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-success">Buscar</button>
                 </form>

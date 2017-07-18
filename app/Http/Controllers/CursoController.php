@@ -11,7 +11,7 @@ class CursoController extends Controller
     public function index()
     {
         return view('curso.index', [
-            'cursos' => Curso::paginate(Curso::ITEMS_POR_PAGINA)
+            'cursos' => Curso::where('estado', Curso::ESTADO_APROVADO)->paginate(Curso::ITEMS_POR_PAGINA)
         ]);
     }
 

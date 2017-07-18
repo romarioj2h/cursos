@@ -12,7 +12,9 @@ class CategoriaController extends Controller
     {
         return view('categoria.categoria', [
             'categoria' => Categoria::find($id),
-            'cursos' => Curso::where('categoriaId', $id)->paginate(Curso::ITEMS_POR_PAGINA)
+            'cursos' => Curso::where('categoriaId', $id)
+                ->where('estado', Curso::ESTADO_APROVADO)
+                ->paginate(Curso::ITEMS_POR_PAGINA)
         ]);
     }
 
