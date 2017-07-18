@@ -23,3 +23,19 @@ footer {
 .container .text-muted {
     margin: 20px 0;
 }
+
+.single-content {
+    background-color: #eee;
+    border-radius: 7px;
+    padding: 9px;
+}
+
+.item-icon {
+    font-size: 70px;
+    color: #18bc9c;
+}
+
+.baner {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

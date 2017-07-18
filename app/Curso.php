@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Searchable;
 
 class Curso extends Model
@@ -13,8 +14,11 @@ class Curso extends Model
     const ITEMS_POR_PAGINA = 10;
     const UPDATED_AT = 'atualizadoEm';
     const CREATED_AT = 'criadoEm';
+    const ESTADO_PEDENTE = 'PENDENTE';
+    const ESTADO_APROVADO = 'APROVADO';
+    const TABLE = 'curso';
 
-    protected $table = 'curso';
+    protected $table = self::TABLE;
 
     public function categoria()
     {
@@ -44,5 +48,11 @@ class Curso extends Model
         $ultimoEspaco = strrpos($resumo, ' ');
         $resumo  = substr($resumo, 0, $ultimoEspaco);
         return $resumo . '...';
+    }
+
+
+    public static function quantidadeCursosAprovados()
+    {
+        return DB::table(self::TABLE)->where('estado', self::ESTADO_APROVADO)->count();
     }
 }
