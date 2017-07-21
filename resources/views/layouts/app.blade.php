@@ -43,9 +43,6 @@
                         <a href="{{ route('categoria.get', ['id' => '3']) }}">CSS</a>
                     </li>
                     <li>
-                        <a href="#">Python</a>
-                    </li>
-                    <li>
                         <a href="{{ route('categoria.get', ['id' => '4']) }}">JavaScript</a>
                     </li>
                     <li class="dropdown">
@@ -53,11 +50,9 @@
                             Mais <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">História</a></li>
-                            <li><a href="#">Física</a></li>
-                            <li><a href="#">Direito</a></li>
-                            <li><a href="#">Biologia</a></li>
-                            <li><a href="#">Química</a></li>
+                            <li><a href="{{ route('categoria.get', ['id' => '6']) }}">Node.JS</a></li>
+                            <li><a href="{{ route('categoria.get', ['id' => '7']) }}">Ruby</a></li>
+                            <li><a href="{{ route('categoria.get', ['id' => '8']) }}">Python</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -80,10 +75,18 @@
 
 <footer>
     <div class="container">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-5 col-md-offset-1">
             <p class="text-muted">
                 Desenvolvido por <b>Romário Huebra</b>
             </p>
+        </div>
+        <div class="col-md-5">
+            <a id="link-contato" href="{{ route('contato.index') }}" class="text-muted pull-right">
+                <b>Contato</b>
+            </a>
+            <a href="{{ route('sobre.index') }}" class="text-muted pull-right">
+                <b>Sobre</b>
+            </a>
         </div>
     </div>
 </footer>

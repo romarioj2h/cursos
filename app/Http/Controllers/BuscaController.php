@@ -12,7 +12,9 @@ class BuscaController extends Controller
         $termoDeBusca = $request->get('q') ?? '';
 
         return view('busca.index', [
-            'cursos' => Curso::search($termoDeBusca)->where('estado', Curso::ESTADO_APROVADO)->paginate(Curso::ITEMS_POR_PAGINA),
+            'cursos' => Curso::search($termoDeBusca)
+                ->where('estado', Curso::ESTADO_APROVADO)
+                ->paginate(Curso::ITEMS_POR_PAGINA),
             'termoDeBusca' => $termoDeBusca
         ]);
     }

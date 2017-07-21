@@ -43,3 +43,15 @@ Route::get('/busca', [
     'as' => 'busca.get',
     'uses' => 'BuscaController@index'
 ]);
+Route::get('/contato', [
+    'as' => 'contato.index',
+    'uses' => 'ContatoController@index'
+]);
+Route::post('/contato', [
+    'as' => 'contato.post',
+    'uses' => 'ContatoController@adicionar'
+]);
+Route::get('/sobre', [
+    'as' => 'sobre.index',
+    'uses' => 'SobreController@index'
+]);

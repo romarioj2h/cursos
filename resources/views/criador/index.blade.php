@@ -7,7 +7,7 @@
     <hr>
     <ul class="media-list">
         @foreach($criadores as $criador)
-            <li class="media">
+            <li class="media col-md-6">
                 <div class="media-left">
                     <a href="{{ route('criador.get', ['id' => $criador->id]) }}">
                         <img class="media-object" src="{{ url('/') }}/{{ $criador->logo }}" alt="...">

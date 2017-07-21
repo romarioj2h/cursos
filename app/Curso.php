@@ -53,6 +53,8 @@ class Curso extends Model
 
     public static function quantidadeCursosAprovados()
     {
-        return DB::table(self::TABLE)->where('estado', self::ESTADO_APROVADO)->count();
+        return DB::table(self::TABLE)
+            ->where('estado', self::ESTADO_APROVADO)
+            ->count();
     }
 }
