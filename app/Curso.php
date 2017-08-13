@@ -57,4 +57,17 @@ class Curso extends Model
             ->where('estado', self::ESTADO_APROVADO)
             ->count();
     }
+
+    public static function carregarCurso(
+        $nome,
+        $descricao,
+        $dataPublicacao,
+        $pago,
+        $link,
+        Criador $criador,
+        Categoria $categoria = null
+    )
+    {
+        
+    }
 }

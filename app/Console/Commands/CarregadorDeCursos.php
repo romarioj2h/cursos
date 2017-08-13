@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Criador;
+use App\Curso;
 use App\Exceptions\ConfigNotFoundException;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -30,10 +31,11 @@ class CarregadorDeCursos extends Command
      * @var string
      */
     public $scriptsDir;
+
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @throws ConfigNotFoundException
      */
     public function __construct()
     {
@@ -56,13 +58,30 @@ class CarregadorDeCursos extends Command
 
         $comando = 'casperjs ' . $this->scriptsDir . $criador->casperScript . ' --carregadores-dir=' . $this->scriptsDir;
 
-        $processo = new Process($comando);
+        $processo = new Process($comando, null, null, null, 3600);
         $processo->run();
         if (!$processo->isSuccessful()) {
             throw new ProcessFailedException($processo);
         }
 
-        $json = $processo->getOutput();
-        $this->line($json);
+        $cursos = json_decode($processo->getOutput());
+
+        foreach ($cursos as $item) {
+            $curso = Curso::where('link', $item->link)->first();
+            if (!$curso) {
+                $curso = new Curso();
+            }
+            $curso->nome = $item->nome;
+            $curso->descricao = $item->descricao;
+            $curso->dataPublicacao = empty($item->dataPublicacao) ? null : $item->dataPublicacao;
+            $curso->link = $item->link;
+            $curso->pago = $item->pago;
+            $curso->criadorId = $criadorId;
+            $curso->categoriaID = null;
+            $curso->estado = Curso::ESTADO_PEDENTE;
+            $curso->save();
+        }
+
+        return true;
     }
 }
