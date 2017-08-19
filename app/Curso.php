@@ -58,16 +58,11 @@ class Curso extends Model
             ->count();
     }
 
-    public static function carregarCurso(
-        $nome,
-        $descricao,
-        $dataPublicacao,
-        $pago,
-        $link,
-        Criador $criador,
-        Categoria $categoria = null
-    )
+    public static function estados()
     {
-        
+        return [
+            Curso::ESTADO_APROVADO => Curso::ESTADO_APROVADO,
+            Curso::ESTADO_PEDENTE => Curso::ESTADO_PEDENTE
+        ];
     }
 }

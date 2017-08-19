@@ -11,9 +11,9 @@
                 <div class="panel-body">
                     <div class="list-group">
                         <a href="{{ route('dash.categoria.index') }}" class="list-group-item">Categorias</a>
+                        <a href="{{ route('dash.curso.index') }}" class="list-group-item">Cursos</a>
                         <a href="#" class="list-group-item">Escolas</a>
-                        <a href="#" class="list-group-item">Cursos</a>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>

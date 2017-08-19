@@ -63,6 +63,14 @@ Route::match(['get', 'post'], '/dash/categoria/adicionar', [
     'as' => 'dash.categoria.adicionar',
     'uses' => 'Dash\CategoriaController@adicionar'
 ]);
+Route::get('/dash/curso', [
+    'as' => 'dash.curso.index',
+    'uses' => 'Dash\CursoController@index'
+]);
+Route::match(['get', 'post'], '/dash/curso/adicionar', [
+    'as' => 'dash.curso.adicionar',
+    'uses' => 'Dash\CursoController@adicionar'
+]);
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');

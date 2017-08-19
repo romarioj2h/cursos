@@ -41,7 +41,7 @@ class CategoriaController extends Controller
             $categoria->direita = 1;
             $categoria->save();
             $request->session()->flash('mensagem', 'Categoria criada com sucesso!');
-            return redirect()->route('dash.categoria.adicionar');
+            return redirect()->route('dash.categoria.index');
         } else {
             return view('dashboard.categoria.adicionar');            
         }
