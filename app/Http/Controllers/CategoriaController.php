@@ -20,7 +20,8 @@ class CategoriaController extends Controller
 
     public function index() {
         return view('categoria.index', [
-            'categorias' => Categoria::all()
+            'categorias' => Categoria::where('habilitada', Categoria::ESTADO_HABILITADA)
+                ->get()
         ]);
     }
 }

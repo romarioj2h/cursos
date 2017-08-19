@@ -8,6 +8,7 @@ class Categoria extends Model
 {
     const UPDATED_AT = 'atualizadoEm';
     const CREATED_AT = 'criadoEm';
+    const ESTADO_HABILITADA = 1;
 
     protected $table = 'categoria';
 

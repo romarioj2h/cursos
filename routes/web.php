@@ -55,3 +55,16 @@ Route::get('/sobre', [
     'as' => 'sobre.index',
     'uses' => 'SobreController@index'
 ]);
+Route::get('/dash/categoria', [
+    'as' => 'dash.categoria.index',
+    'uses' => 'Dash\CategoriaController@index'
+]);
+Route::match(['get', 'post'], '/dash/categoria/adicionar', [
+    'as' => 'dash.categoria.adicionar',
+    'uses' => 'Dash\CategoriaController@adicionar'
+]);
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/dash', 'DashboardController@index')->name('dashboard.index');
