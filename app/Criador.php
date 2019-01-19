@@ -20,7 +20,7 @@ class Criador extends Model
 
     public function cursos()
     {
-        return $this->hasMany('App\Curso', 'criadorId')->where('estado', Curso::ESTADO_APROVADO);
+        return $this->hasMany('App\Curso', 'criadorId')->where('estado', Curso::ESTADO_HABILITADO);
     }
 
     public function buscarCursosPopulares()

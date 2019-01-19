@@ -30,8 +30,8 @@ class CursoController extends Controller
                 'estado' => [
                     'required',
                     \Illuminate\Validation\Rule::in([
-                        Curso::ESTADO_APROVADO,
-                        Curso::ESTADO_PEDENTE
+                        Curso::ESTADO_HABILITADO,
+                        Curso::ESTADO_INABILITADO
                     ])
                 ],
             ]);

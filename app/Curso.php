@@ -14,8 +14,8 @@ class Curso extends Model
     const ITEMS_POR_PAGINA = 10;
     const UPDATED_AT = 'atualizadoEm';
     const CREATED_AT = 'criadoEm';
-    const ESTADO_PEDENTE = 'PENDENTE';
-    const ESTADO_APROVADO = 'APROVADO';
+    const ESTADO_INABILITADO = 'INABILITADO';
+    const ESTADO_HABILITADO = 'HABILITADO';
     const TABLE = 'curso';
 
     protected $table = self::TABLE;
@@ -54,15 +54,15 @@ class Curso extends Model
     public static function quantidadeCursosAprovados()
     {
         return DB::table(self::TABLE)
-            ->where('estado', self::ESTADO_APROVADO)
+            ->where('estado', self::ESTADO_HABILITADO)
             ->count();
     }
 
     public static function estados()
     {
         return [
-            Curso::ESTADO_APROVADO => Curso::ESTADO_APROVADO,
-            Curso::ESTADO_PEDENTE => Curso::ESTADO_PEDENTE
+            Curso::ESTADO_HABILITADO => Curso::ESTADO_HABILITADO,
+            Curso::ESTADO_INABILITADO => Curso::ESTADO_INABILITADO
         ];
     }
 }

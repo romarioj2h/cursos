@@ -14,7 +14,7 @@ class Categoria extends Model
 
     public function cursos()
     {
-        return $this->hasMany('App\Curso', 'categoriaId')->where('estado', Curso::ESTADO_APROVADO);
+        return $this->hasMany('App\Curso', 'categoriaId')->where('estado', Curso::ESTADO_HABILITADO);
     }
 
     public function buscarCursosPopulares()

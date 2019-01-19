@@ -21,11 +21,23 @@
                                             <a href="{{ route('curso.get', ['id' => $curso->id]) }}">
                                                 {{ $curso->nome }}
                                             </a>
+                                            @if($curso->estado == App\Curso::ESTADO_HABILITADO)
+                                                <a type="button" class="btn btn-default btn-sm" aria-label="Left Align">
+                                                    <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                                                </a>
+                                            @elseif($curso->estado == App\Curso::ESTADO_HABILITADO)
+                                                <a type="button" class="btn btn-default btn-sm" aria-label="Left Align">
+                                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                                </a>
+                                            @endif
                                         </h4>
                                     </div>
                                 </li>
                             @endforeach
                         </ul>
+                        <div class="text-center">
+                            {{ $cursos->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

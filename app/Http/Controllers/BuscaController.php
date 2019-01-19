@@ -13,7 +13,7 @@ class BuscaController extends Controller
 
         return view('busca.index', [
             'cursos' => Curso::search($termoDeBusca)
-                ->where('estado', Curso::ESTADO_APROVADO)
+                ->where('estado', Curso::ESTADO_HABILITADO)
                 ->paginate(Curso::ITEMS_POR_PAGINA),
             'termoDeBusca' => $termoDeBusca
         ]);
